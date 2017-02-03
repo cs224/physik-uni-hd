@@ -56,7 +56,7 @@ e7 = Eq(Delta_p_2, p_B - p_0)
 e81 = solve(e1, p_B-p_0)
 e8 = Eq(Delta_p_2, e81[0])
 
-e9 = Eq(Delta_p_1, e8.rhs.subs(l_2, l_1).subs(dotV_2, 2*dotV_1).subs(R_2, R_1))
+e9 = Eq(Delta_p_1, e8.rhs.subs(l_2, l_1).subs(dotV_1, 2*dotV_2).subs(R_2, R_1))
 
 p_0 = Symbol("p_0", positive=True)
 
@@ -64,7 +64,7 @@ eDelta_p_1 = e9.rhs
 eDelta_p_2 = e8.rhs
 
 ep_A = p_0 + eDelta_p_1 + eDelta_p_2
-factor(ep_A)
+factor(simplify(ep_A.subs(R_1, eR1).subs(R_2, eR2).subs(dotV_1, 2*dotV_2)))
 
 #e4.subs([(R, R_1)])
 
